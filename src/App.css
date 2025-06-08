@@ -1,0 +1,49 @@
+body, html {
+    background-color: rgb(14, 14, 14);
+}
+
+.gradient-custom-text {
+  background: linear-gradient(
+    135deg,
+    color(display-p3 .6196078431 .4784313725 1 / 1) 0%,
+    color(display-p3 .9960784314 .5450980392 .7333333333 / 1) 33.33%,
+    color(display-p3 1 .7411764706 .4784313725 / 1) 66.67%,
+    color(display-p3 .9725490196 .9176470588 .7647058824 / 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-custom-bg {
+  background: linear-gradient(
+    135deg,
+    color(display-p3 .6196078431 .4784313725 1 / 1) 0%,
+    color(display-p3 .9960784314 .5450980392 .7333333333 / 1) 33.33%,
+    color(display-p3 1 .7411764706 .4784313725 / 1) 66.67%,
+    color(display-p3 .9725490196 .9176470588 .7647058824 / 1) 100%
+  );
+}
+
+@keyframes animated-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-animated-gradient {
+  background: linear-gradient(270deg, #a1c4fd, #c2e9fb, #fbc2eb, #f9f9f9);
+  background-size: 600% 600%;
+  animation: animated-gradient 8s ease infinite;
+}
+
+
+
+
