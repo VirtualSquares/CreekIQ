@@ -1,35 +1,28 @@
-import React from "react";
-import "../App.css";
+import { Link } from "react-router-dom";
 
-function Navbar() {
+export default function Navbar() {
   return (
-    <>
-      <div className="sticky top-0 z-50 border-b text-white bg-zinc-900/80 flex items-center justify-evenly px-6 py-3">
-        <h1 className="font-bold text-2xl gradient-custom-text">CreekIQ</h1>
-
-        <ul className="flex gap-6 text-sm font-medium text-gray-400 border-2 rounded-4xl px-5 py-2">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-
-        <div className="flex items-center gap-4">
-          <a href="#" className="text-sm underline text-gray-400">
-            Get Started
-          </a>
-          <button className="text-white px-4 py-2 rounded-md bg-blue-500 hover:bg-blue-600 transition cursor-pointer">
-            Login
-          </button>
-        </div>
+    <nav
+      className="w-full px-6 py-4 flex justify-between items-center m-0 sticky top-0 z-50"
+      style={{ backgroundColor: '#0E0E0E', borderBottom: '1px solid #2c2c2c' }}
+    >
+      <Link to="/" className="text-2xl font-bold gradient-custom-text">
+        CreekIQ
+      </Link>
+      <div className="flex gap-4">
+        <Link
+          to="/register"
+          className="text-white bg-green-600 px-5 py-2 rounded-full hover:bg-green-700 transition"
+        >
+          Register
+        </Link>
+        <Link
+          to="/login"
+          className="text-white bg-blue-600 px-5 py-2 rounded-full hover:bg-blue-700 transition"
+        >
+          Login
+        </Link>
       </div>
-    </>
+    </nav>
   );
 }
-
-export default Navbar;

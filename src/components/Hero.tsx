@@ -4,8 +4,8 @@ import "../App.css";
 function Hero() {
   return (
     <>
-      <div className="w-full min-h-screen bg-[#0e0e0e] text-white flex flex-col justify-center">
-        <div className="mx-auto text-center mt-[60px]">
+      <div className="w-full min-h-screen bg-[#0e0e0e] text-white flex flex-col justify-center -mt-[15vh]">
+        <div className="mx-auto text-center">
           <div className="mb-4 px-4 py-1 bg-inherit text-sm rounded-full font-bold shadow-sm inline-block">
             <span className="gradient-custom-text border border-white px-2 rounded-xl">
               Public Beta Release

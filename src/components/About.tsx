@@ -43,29 +43,40 @@ function About() {
     },
   ];
 
+  const half = Math.ceil(features.length / 2);
+  const firstRow = features.slice(0, half);
+  const secondRow = features.slice(half);
+
   return (
-    <div className="w-full bg-[#1a1a1a] py-16">
+    <div className="w-full bg-[#1a1a1a] py-16 flex flex-col gap-10">
       <div className="text-center text-white mb-10">
         <h1 className="font-bold text-5xl">
           Why <span className="gradient-custom-text">CreekIQ</span>?
         </h1>
       </div>
 
-      <div className="flex justify-center flex-wrap gap-6">
-        {features.map((item, index) => (
-          <div
-            key={index}
-            className="relative p-[3px] w-80 h-[150px] rounded-xl bg-animated-gradient"
-          >
-            <div className="relative h-full w-full rounded-xl bg-[#1a1a1a] p-6 text-gray-300 z-10">
-              <div className="absolute top-4 left-4">{item.icon}</div>
-              <h1 className="font-bold text-2xl text-white mt-8">
-                {item.title}
-              </h1>
-              <p className="mt-2">{item.text}</p>
-            </div>
-          </div>
+      <div className="flex justify-center gap-6 flex-wrap">
+        {firstRow.map((item, index) => (
+          <FeatureCard key={index} item={item} />
         ))}
+      </div>
+
+      <div className="flex justify-center gap-6 flex-wrap">
+        {secondRow.map((item, index) => (
+          <FeatureCard key={index} item={item} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function FeatureCard({ item }: { item: typeof About.prototype.features extends Array<infer U> ? U : never }) {
+  return (
+    <div className="relative p-[3px] w-80 h-[150px] rounded-xl bg-animated-gradient">
+      <div className="relative h-full w-full rounded-xl bg-[#1a1a1a] p-6 text-gray-300 z-10">
+        <div className="absolute top-4 left-4">{item.icon}</div>
+        <h1 className="font-bold text-2xl text-white mt-8">{item.title}</h1>
+        <p className="mt-2">{item.text}</p>
       </div>
     </div>
   );

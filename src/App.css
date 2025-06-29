@@ -1,5 +1,8 @@
 body, html {
     background-color: rgb(14, 14, 14);
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 .gradient-custom-text {
@@ -43,7 +46,4 @@ body, html {
   background-size: 600% 600%;
   animation: animated-gradient 8s ease infinite;
 }
-
-
-
 
