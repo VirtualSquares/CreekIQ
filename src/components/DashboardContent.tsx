@@ -44,23 +44,36 @@ function DashboardContent() {
 
   const takePhoto = () => {
     if (!videoRef.current || !canvasRef.current) return;
-
     const video = videoRef.current;
     const canvas = canvasRef.current;
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
-
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
     const dataUrl = canvas.toDataURL("image/png");
     setPhoto(dataUrl);
   };
 
-  const analyzePhoto = () => {
-    alert("Analyzing photo...");
+  const analyzePhoto = async () => {
+    if (!photo) return;
+    try {
+      const response = await fetch("http://localhost:5000/api/analyze", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ image: photo }),
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        alert("Error: " + result.error);
+      } else {
+        alert(`Analysis complete: ${JSON.stringify(result)}`);
+      }
+    } catch (err) {
+      alert("Failed to analyze photo: " + err);
+    }
   };
 
   return (
